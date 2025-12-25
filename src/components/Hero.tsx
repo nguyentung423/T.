@@ -33,14 +33,13 @@ export function Hero() {
 
           {/* Headline */}
           <h1
-            className={`text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 font-display transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
             }`}
             style={{
               color: "#1D1D1F",
-              fontFamily: "'Be Vietnam Pro', sans-serif",
               lineHeight: 1.25,
               letterSpacing: "-0.02em",
               transitionDelay: "100ms",

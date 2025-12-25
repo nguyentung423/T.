@@ -2,12 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Playfair_Display } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { Container } from "./Container";
 import { useLanguage } from "@/context/LanguageContext";
-
-const playfair = Playfair_Display({ subsets: ["latin", "vietnamese"] });
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,7 +37,7 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className={`${playfair.className} text-2xl font-bold text-black tracking-tight`}
+            className="font-serif text-2xl font-bold text-black tracking-tight"
           >
             T.
           </Link>

@@ -37,13 +37,13 @@ export function TrustSection() {
           {/* Left Column: The Maker */}
           <div>
             {/* Profile Image */}
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-lg relative">
               <Image
                 src="/demos/u.jpg"
                 alt="Tung - Portfolio Builder"
-                width={600}
-                height={600}
-                className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
               />
             </div>
             {/* Caption */}

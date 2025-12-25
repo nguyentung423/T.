@@ -1,13 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/content/site";
 import { LanguageProvider } from "@/context/LanguageContext";
 
+// Consolidated font loading - eliminates render-blocking external requests
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+});
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["600", "700"],
+  variable: "--font-be-vietnam-pro",
+  display: "swap",
+  preload: true,
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-playfair",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -50,7 +67,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className={inter.variable} suppressHydrationWarning>
+    <html
+      lang="vi"
+      className={`${inter.variable} ${beVietnamPro.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
       <body className="font-sans" suppressHydrationWarning>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
