@@ -1,76 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { AvailabilityBadge } from "./AvailabilityBadge";
 import { Container } from "./Container";
 
 export function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
   const { t } = useLanguage();
-
-  useEffect(() => {
-    // Trigger animation after mount
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="relative min-h-[85vh] flex items-center">
       <Container className="py-20 md:py-28 w-full">
         <div className="max-w-2xl">
-          {/* Eyebrow - Availability */}
+          {/* Eyebrow - Availability - CSS Animation Only */}
           <div
-            className={`mb-6 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "0ms" }}
+            className="mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+            style={{ animationDelay: "0ms" }}
           >
             <AvailabilityBadge />
           </div>
 
-          {/* Headline */}
+          {/* Headline - LCP Element - NO DELAY */}
           <h1
-            className={`text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 font-display transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 font-display animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
             style={{
               color: "#1D1D1F",
               lineHeight: 1.25,
               letterSpacing: "-0.02em",
-              transitionDelay: "100ms",
+              animationDelay: "100ms",
             }}
           >
             {t.hero.headline}
           </h1>
 
-          {/* Sub-headline */}
+          {/* Sub-headline - CSS Animation Only */}
           <p
-            className={`text-xl md:text-[21px] leading-relaxed mb-10 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
+            className="text-xl md:text-[21px] leading-relaxed mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
             style={{
               color: "#86868B",
-              transitionDelay: "200ms",
+              animationDelay: "200ms",
             }}
           >
             {t.hero.subheadline}
           </p>
 
-          {/* CTA Button */}
+          {/* CTA Button - CSS Animation Only */}
           <div
-            className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "300ms" }}
+            className="animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+            style={{ animationDelay: "300ms" }}
           >
             <a
               href="#contact"
