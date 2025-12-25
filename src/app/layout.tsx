@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
+import { Inter, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/content/site";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-// Consolidated font loading - eliminates render-blocking external requests
+/**
+ * Performance Optimization: Only 2 fonts (eliminated Playfair for logo)
+ * - Inter: Body text (~20KB gzipped)
+ * - Be Vietnam Pro: Headlines (~15KB gzipped)
+ * - Logo "T." now uses system serif (saves ~30KB)
+ */
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
   variable: "--font-inter",
   display: "swap",
   preload: true,
+  // Only load weights actually used
+  weight: ["400", "500", "600"],
 });
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["600", "700"],
   variable: "--font-be-vietnam-pro",
-  display: "swap",
-  preload: true,
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-playfair",
   display: "swap",
   preload: true,
 });
@@ -69,11 +69,14 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${inter.variable} ${beVietnamPro.variable} ${playfair.variable}`}
+      className={`${inter.variable} ${beVietnamPro.variable}`}
       suppressHydrationWarning
     >
       <head>
-        {/* Critical performance: Preconnect to Google Fonts */}
+        {/* DNS prefetch for faster font loading */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Preconnect with crossorigin for font files */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

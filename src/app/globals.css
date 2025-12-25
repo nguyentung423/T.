@@ -10,7 +10,16 @@ body {
   @apply antialiased text-gray-900 bg-white;
 }
 
-/* Critical LCP Animations - CSS Only */
+/**
+ * Performance-Optimized Animations
+ * 
+ * Strategy:
+ * 1. LCP element (h1) has NO animation - renders immediately
+ * 2. Secondary elements use lightweight fade (no transform)
+ * 3. Delayed animations wait 150ms after paint
+ */
+
+/* Immediate fade - no delay, minimal paint cost */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -20,35 +29,23 @@ body {
   }
 }
 
-@keyframes slide-in-from-bottom-4 {
-  from {
+/* Delayed fade - starts after LCP paints */
+@keyframes fade-in-delayed {
+  0%,
+  20% {
     opacity: 0;
-    transform: translateY(1rem);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-.animate-in {
-  animation-fill-mode: both;
+.animate-fade-in {
+  animation: fade-in 400ms ease-out both;
 }
 
-.fade-in {
-  animation-name: fade-in;
-}
-
-.slide-in-from-bottom-4 {
-  animation-name: slide-in-from-bottom-4;
-}
-
-.duration-700 {
-  animation-duration: 700ms;
-}
-
-.fill-mode-both {
-  animation-fill-mode: both;
+.animate-fade-in-delayed {
+  animation: fade-in-delayed 500ms ease-out both;
 }
 
 /* Focus styles for accessibility */
@@ -68,4 +65,20 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Mobile menu animation */
+@keyframes slide-in-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in.slide-in-from-top {
+  animation: slide-in-from-top 200ms ease-out both;
 }

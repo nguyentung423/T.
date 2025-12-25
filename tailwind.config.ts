@@ -14,23 +14,8 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         display: ["var(--font-be-vietnam-pro)", "system-ui", "sans-serif"],
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
-      },
-      // Critical animations for LCP optimization
-      animation: {
-        "fade-in": "fade-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both",
-        "slide-in":
-          "slide-in-from-bottom-4 700ms cubic-bezier(0.16, 1, 0.3, 1) both",
-      },
-      keyframes: {
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        "slide-in-from-bottom-4": {
-          "0%": { opacity: "0", transform: "translateY(1rem)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
+        // Logo serif: Use system fonts (eliminates Playfair ~30KB)
+        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
       },
       spacing: {
         "18": "4.5rem",

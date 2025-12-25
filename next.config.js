@@ -17,6 +17,13 @@ const nextConfig = {
   },
   // Disable x-powered-by header for security
   poweredByHeader: false,
+  // CSS optimization
+  modularizeImports: {
+    // Tree-shake unused imports
+    lodash: {
+      transform: "lodash/{{member}}",
+    },
+  },
 };
 
 module.exports = nextConfig;
