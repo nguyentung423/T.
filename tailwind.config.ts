@@ -12,9 +12,10 @@ const config: Config = {
         accent: "#4A5568",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        // Single font: Be Vietnam Pro for everything
+        sans: ["var(--font-be-vietnam-pro)", "system-ui", "sans-serif"],
         display: ["var(--font-be-vietnam-pro)", "system-ui", "sans-serif"],
-        // Logo serif: Use system fonts (eliminates Playfair ~30KB)
+        // Logo serif: System fonts
         serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
       },
       spacing: {

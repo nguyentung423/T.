@@ -1,27 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Be_Vietnam_Pro } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/content/site";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 /**
- * Performance Optimization: Only 2 fonts (eliminated Playfair for logo)
- * - Inter: Body text (~20KB gzipped)
- * - Be Vietnam Pro: Headlines (~15KB gzipped)
- * - Logo "T." now uses system serif (saves ~30KB)
+ * Performance Optimization: Single font strategy
+ * - Be Vietnam Pro: Optimized for Vietnamese text
+ * - Logo "T." uses system serif (Georgia)
+ * - ~50% fewer font requests vs 2 fonts
  */
-const inter = Inter({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-  // Only load weights actually used
-  weight: ["400", "500", "600"],
-});
-
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-be-vietnam-pro",
   display: "swap",
   preload: true,
@@ -67,11 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="vi"
-      className={`${inter.variable} ${beVietnamPro.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="vi" className={beVietnamPro.variable} suppressHydrationWarning>
       <head>
         {/* DNS prefetch for faster font loading */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
