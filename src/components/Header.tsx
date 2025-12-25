@@ -34,13 +34,13 @@ export function Header() {
           role="navigation"
           aria-label="Main navigation"
         >
-          {/* Logo */}
-          <Link
+          {/* Logo - TEMPORARILY HIDDEN to test font loading */}
+          {/* <Link
             href="/"
             className="font-serif text-2xl font-bold text-black tracking-tight"
           >
             T.
-          </Link>
+          </Link> */}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
