@@ -27,7 +27,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 supports-[backdrop-filter]:bg-white/70">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white md:bg-white/70 md:backdrop-blur-xl border-b border-black/5">
       <Container>
         <nav
           className="py-4 flex items-center justify-between"
