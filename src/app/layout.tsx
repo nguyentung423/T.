@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
-import { siteContent } from "@/content/site";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 /**
@@ -20,31 +19,34 @@ const beVietnamPro = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteContent.brand.name} — ${siteContent.brand.tagline}`,
-    template: `%s | ${siteContent.brand.name}`,
+    default: "T. | Chế tác Portfolio — Nâng tầm sự nghiệp của bạn",
+    template: "%s | T.",
   },
-  description: siteContent.hero.subheadline,
+  description:
+    "Kỷ nguyên mới đòi hỏi nhiều hơn một chiếc CV. Tôi giúp bạn xây dựng không gian riêng chuyên nghiệp, duy mỹ và độc bản để kể câu chuyện sự nghiệp của mình.",
   keywords: [
-    "portfolio website",
-    "personal website",
-    "web design",
-    "minimal portfolio",
-    "professional portfolio",
-    "student portfolio",
+    "portfolio cá nhân",
+    "website portfolio",
+    "thiết kế portfolio",
+    "portfolio sinh viên",
+    "portfolio chuyên nghiệp",
+    "xây dựng thương hiệu cá nhân",
   ],
-  authors: [{ name: siteContent.brand.name }],
-  creator: siteContent.brand.name,
+  authors: [{ name: "T." }],
+  creator: "T.",
   openGraph: {
     type: "website",
-    locale: "en_US",
-    siteName: siteContent.brand.name,
-    title: `${siteContent.brand.name} — ${siteContent.brand.tagline}`,
-    description: siteContent.hero.subheadline,
+    locale: "vi_VN",
+    siteName: "T.",
+    title: "T. | Chế tác Portfolio",
+    description:
+      "Đừng để tài năng của bạn bị giới hạn trong khổ giấy A4. Khám phá không gian độc bản dành riêng cho bạn.",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteContent.brand.name} — ${siteContent.brand.tagline}`,
-    description: siteContent.hero.subheadline,
+    title: "T. | Chế tác Portfolio",
+    description:
+      "Đừng để tài năng của bạn bị giới hạn trong khổ giấy A4. Khám phá không gian độc bản dành riêng cho bạn.",
   },
   robots: {
     index: true,
