@@ -14,6 +14,7 @@ export function Header() {
 
   const navItems = [
     { label: t.header.menu_projects, href: "/#work" },
+    { label: t.header.menu_stories, href: "/stories" },
     { label: t.header.menu_process, href: "/#how" },
     { label: t.header.menu_contact, href: "/#contact" },
   ];

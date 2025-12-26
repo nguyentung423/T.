@@ -7,6 +7,7 @@ export const translations = {
   vi: {
     header: {
       menu_projects: "Dự án",
+      menu_stories: "Stories",
       menu_process: "Quy trình",
       menu_contact: "Liên hệ",
     },
@@ -140,6 +141,7 @@ export const translations = {
   en: {
     header: {
       menu_projects: "Projects",
+      menu_stories: "Stories",
       menu_process: "Process",
       menu_contact: "Contact",
     },
