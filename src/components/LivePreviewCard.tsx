@@ -6,14 +6,6 @@ interface LivePreviewCardProps {
   href: string;
 }
 
-// Role-based tag themes for clean, uniform appearance
-const roleThemes: Record<string, { bg: string; text: string }> = {
-  "Business Analyst": { bg: "bg-blue-50", text: "text-blue-700" },
-  "Software Developer": { bg: "bg-purple-50", text: "text-purple-700" },
-};
-
-const defaultTheme = { bg: "bg-gray-100", text: "text-gray-600" };
-
 export function LivePreviewCard({
   url,
   title,
@@ -85,17 +77,14 @@ export function LivePreviewCard({
           </h3>
           <p className="text-sm text-gray-500 mb-4">{role}</p>
           <div className="flex flex-wrap gap-1.5">
-            {tags.map((tag) => {
-              const theme = roleThemes[role] || defaultTheme;
-              return (
-                <span
-                  key={tag}
-                  className={`px-2.5 py-1 text-[10px] uppercase tracking-wide font-bold rounded-full ${theme.bg} ${theme.text}`}
-                >
-                  {tag}
-                </span>
-              );
-            })}
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2.5 py-1 text-[10px] uppercase tracking-wide font-bold rounded-full bg-gray-100 text-gray-600"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </article>

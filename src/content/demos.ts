@@ -14,37 +14,38 @@ export const demos: Demo[] = [
   {
     slug: "ba",
     title: "Alex Chen",
-    role: "Business Analyst",
-    tags: ["Strategy", "Data", "Process"],
+    role: "Product Designer",
+    tags: ["UX Research", "Prototyping", "Design Systems"],
     thumbnail: "/demos/ba-thumbnail.svg",
     description:
       "Giao diện tối giản, chuyên nghiệp dành cho khối kinh tế/văn phòng.",
     route: "/demo/ba",
     enabled: true,
-    livePreviewUrl: "https://pr5-phi.vercel.app/",
+    livePreviewUrl: "https://p5des-8h3e.vercel.app/",
   },
   {
     slug: "dev",
-    title: "Jordan Park",
-    role: "Software Developer",
-    tags: ["Full-Stack", "React", "Node.js"],
+    title: "Robin Ng",
+    role: "Backend Developer",
+    tags: ["Node.js", "Database", "API Design"],
     thumbnail: "/demos/dev-thumbnail.svg",
     description:
       "Giao diện Dark Mode, đậm chất công nghệ dành cho dân kỹ thuật/IT.",
     route: "/demo/dev",
     enabled: true,
-    livePreviewUrl: "https://pr5-phi.vercel.app/",
+    livePreviewUrl: "https://dev-two-flame.vercel.app/",
   },
   {
     slug: "creative",
-    title: "Sam Rivera",
-    role: "UX Designer",
-    tags: ["UX", "Visual Design", "Research"],
+    title: "Tung Nguyen",
+    role: "Business Analyst",
+    tags: ["Data", "Strategy", "Process"],
     thumbnail: "/demos/creative-thumbnail.svg",
     description:
       "Visual-forward portfolio for designers who want their work to speak first.",
     route: "/demo/creative",
-    enabled: false, // Set to true to enable this demo
+    enabled: true, // Now enabled for tripod layout
+    livePreviewUrl: "https://pr5-phi.vercel.app/",
   },
 ];
 
