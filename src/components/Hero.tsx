@@ -101,16 +101,13 @@ export function Hero() {
             )}
           </h1>
 
-          {/* Sub-headline */}
-          <motion.p
+          {/* Sub-headline - Static for LCP optimization (no animation delay) */}
+          <p
             className="text-xl md:text-[21px] leading-relaxed mb-10"
             style={{ color: "#86868B" }}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
           >
             {t.hero.subheadline}
-          </motion.p>
+          </p>
 
           {/* CTA Button */}
           <motion.div
