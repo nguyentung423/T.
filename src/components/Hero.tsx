@@ -71,7 +71,7 @@ export function Hero() {
               </>
             ) : (
               <>
-                <span className="text-black">Don't let your </span>
+                <span className="text-black">Don&apos;t let your </span>
                 <motion.span
                   className="inline-block text-black font-bold"
                   initial={{ opacity: 0.7, scale: 0.98 }}
