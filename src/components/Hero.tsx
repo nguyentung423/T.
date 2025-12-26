@@ -6,7 +6,7 @@ import { Container } from "./Container";
 
 /**
  * Hero Section - Pure HTML/CSS for Maximum Performance
- * 
+ *
  * NO framer-motion, NO animations, NO transitions on text
  * Text renders instantly (0ms delay) for optimal LCP
  */
@@ -35,14 +35,14 @@ export function Hero() {
                 <span className="text-black">Đừng để </span>
                 <span className="text-black font-bold">tài năng</span>
                 <span className="text-black"> của bạn bị giới hạn trong </span>
-                <span className="headline-fade-out">khổ giấy A4.</span>
+                <span className="text-gray-400">khổ giấy A4.</span>
               </>
             ) : (
               <>
                 <span className="text-black">Don&apos;t let your </span>
                 <span className="text-black font-bold">talent</span>
                 <span className="text-black"> be limited to </span>
-                <span className="headline-fade-out">a sheet of A4 paper.</span>
+                <span className="text-gray-400">a sheet of A4 paper.</span>
               </>
             )}
           </h1>
