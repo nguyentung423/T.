@@ -6,11 +6,13 @@ import { AvailabilityBadge } from "./AvailabilityBadge";
 import { Container } from "./Container";
 
 /**
- * Hero Section - Cinematic Typography with Framer Motion
+ * Hero Section - Static Typography for Performance
  *
  * Visual Hierarchy:
- * 1. "tài năng" = Hero (bold, emphasized, scale animation)
- * 2. "bị giới hạn trong khổ giấy A4" = Fading constraint (blur-in)
+ * 1. "tài năng" = Hero (bold, emphasized)
+ * 2. "khổ giấy A4" = Fading constraint (gradient text effect)
+ *
+ * LCP Optimized: No JS animations on headline
  */
 export function Hero() {
   const { t, language } = useLanguage();
@@ -30,8 +32,8 @@ export function Hero() {
           </motion.div>
 
           {/* 
-            Headline - Cinematic Typography
-            "Talent" is the hero, "A4 paper" fades as the breaking constraint
+            Headline - Static for LCP Performance
+            Pure CSS styling, Zero JS animation
           */}
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 font-display"
@@ -43,60 +45,16 @@ export function Hero() {
             {language === "vi" ? (
               <>
                 <span className="text-black">Đừng để </span>
-                <motion.span
-                  className="inline-block text-black font-bold"
-                  initial={{ opacity: 0.7, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1.02 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.2,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  tài năng
-                </motion.span>
+                <span className="text-black font-bold">tài năng</span>
                 <span className="text-black"> của bạn bị giới hạn trong </span>
-                <motion.span
-                  className="headline-fade-out"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: "easeOut",
-                  }}
-                >
-                  khổ giấy A4.
-                </motion.span>
+                <span className="headline-fade-out">khổ giấy A4.</span>
               </>
             ) : (
               <>
                 <span className="text-black">Don&apos;t let your </span>
-                <motion.span
-                  className="inline-block text-black font-bold"
-                  initial={{ opacity: 0.7, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1.02 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.2,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  talent
-                </motion.span>
+                <span className="text-black font-bold">talent</span>
                 <span className="text-black"> be limited to </span>
-                <motion.span
-                  className="headline-fade-out"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: "easeOut",
-                  }}
-                >
-                  a sheet of A4 paper.
-                </motion.span>
+                <span className="headline-fade-out">a sheet of A4 paper.</span>
               </>
             )}
           </h1>
