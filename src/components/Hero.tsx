@@ -1,18 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { AvailabilityBadge } from "./AvailabilityBadge";
 import { Container } from "./Container";
 
 /**
- * Hero Section - Static Typography for Performance
- *
- * Visual Hierarchy:
- * 1. "tài năng" = Hero (bold, emphasized)
- * 2. "khổ giấy A4" = Fading constraint (gradient text effect)
- *
- * LCP Optimized: No JS animations on headline
+ * Hero Section - Pure HTML/CSS for Maximum Performance
+ * 
+ * NO framer-motion, NO animations, NO transitions on text
+ * Text renders instantly (0ms delay) for optimal LCP
  */
 export function Hero() {
   const { t, language } = useLanguage();
@@ -22,19 +18,11 @@ export function Hero() {
       <Container className="py-20 md:py-28 w-full">
         <div className="max-w-2xl">
           {/* Eyebrow - Availability Badge */}
-          <motion.div
-            className="mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
+          <div className="mb-6">
             <AvailabilityBadge />
-          </motion.div>
+          </div>
 
-          {/* 
-            Headline - Static for LCP Performance
-            Pure CSS styling, Zero JS animation
-          */}
+          {/* Headline - Static, no animation */}
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 font-display"
             style={{
@@ -59,7 +47,7 @@ export function Hero() {
             )}
           </h1>
 
-          {/* Sub-headline - Static for LCP optimization (no animation delay) */}
+          {/* Sub-headline - Static */}
           <p
             className="text-xl md:text-[21px] leading-relaxed mb-10"
             style={{ color: "#86868B" }}
@@ -67,20 +55,16 @@ export function Hero() {
             {t.hero.subheadline}
           </p>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
-          >
+          {/* CTA Button - Only hover effect, no entrance animation */}
+          <div>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium text-white transition-transform duration-300 ease-out hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium text-white hover:opacity-90 active:scale-95"
               style={{ backgroundColor: "#1D1D1F" }}
             >
               {t.hero.cta}
             </a>
-          </motion.div>
+          </div>
         </div>
       </Container>
     </section>
