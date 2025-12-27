@@ -31,10 +31,7 @@ export function Hero() {
               <>
                 <span className="text-black">Đừng để </span>
                 <span className="text-black font-bold">tài năng</span>
-                <span className="text-black">
-                  {" "}
-                  của bạn bị giới hạn trong{" "}
-                </span>
+                <span className="text-black"> của bạn bị giới hạn trong </span>
                 <span className="text-gray-400">khổ giấy A4.</span>
               </>
             ) : (
