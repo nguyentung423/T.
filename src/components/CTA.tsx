@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { AnimatedSection } from "./AnimatedSection";
 
 function ArrowIcon() {
   return (
@@ -43,34 +44,42 @@ export function CTA() {
 
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6">
         {/* Live Status Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 backdrop-blur-sm mb-10">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="text-sm font-medium text-emerald-400">
-            {t.footer.badge}
-          </span>
-        </div>
+        <AnimatedSection>
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 backdrop-blur-sm mb-10">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-sm font-medium text-emerald-400">
+              {t.footer.badge}
+            </span>
+          </div>
+        </AnimatedSection>
 
         {/* Headline - Massive Impact */}
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tighter">
-          {t.footer.headline}
-        </h2>
+        <AnimatedSection delay={0.1}>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tighter">
+            {t.footer.headline}
+          </h2>
+        </AnimatedSection>
 
         {/* Subtext */}
-        <p className="text-lg text-gray-400 mb-12 max-w-xl mx-auto">
-          {t.footer.subtext}
-        </p>
+        <AnimatedSection delay={0.2}>
+          <p className="text-lg text-gray-400 mb-12 max-w-xl mx-auto">
+            {t.footer.subtext}
+          </p>
+        </AnimatedSection>
 
         {/* CTA Button - Magnetic */}
-        <a
-          href={mailtoLink}
-          className="group inline-flex items-center justify-center px-10 py-5 bg-white text-black rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#1D1D1F]"
-        >
-          {t.footer.cta}
-          <ArrowIcon />
-        </a>
+        <AnimatedSection delay={0.3}>
+          <a
+            href={mailtoLink}
+            className="group inline-flex items-center justify-center px-10 py-5 bg-white text-black rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#1D1D1F]"
+          >
+            {t.footer.cta}
+            <ArrowIcon />
+          </a>
+        </AnimatedSection>
       </div>
     </div>
   );

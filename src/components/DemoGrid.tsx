@@ -28,7 +28,7 @@ export function DemoGrid({ demos }: DemoGridProps) {
             return (
               <div
                 key={demo.slug}
-                className="md:col-span-2 flex justify-center animate-fade-in"
+                className="md:col-span-2 flex justify-center"
               >
                 {/* Constrained width to match top row cards: 50% minus half gap */}
                 <div className="w-full md:w-[calc(50%-0.75rem)]">

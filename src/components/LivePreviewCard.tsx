@@ -21,7 +21,7 @@ export function LivePreviewCard({
       className="group block"
       aria-label={`View ${title}'s portfolio demo`}
     >
-      <article className="overflow-hidden rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_30px_50px_-15px_rgba(0,0,0,0.12)]">
+      <article className="overflow-hidden rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out group-hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_30px_50px_-15px_rgba(0,0,0,0.12)]">
         {/* Browser Window Preview */}
         <div className="relative aspect-[4/3] bg-white overflow-hidden">
           {/* Mac Window Header */}
@@ -57,7 +57,7 @@ export function LivePreviewCard({
                 className="h-full border-none"
                 title={`${title} Portfolio Preview`}
                 tabIndex={-1}
-                loading="lazy"
+                loading="eager"
                 style={{
                   pointerEvents: "none",
                   width: "calc(100% + 17px)", // Push scrollbar outside visible area

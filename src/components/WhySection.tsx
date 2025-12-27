@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { AnimatedSection } from "./AnimatedSection";
 
 export function WhySection() {
   const { t } = useLanguage();
@@ -32,27 +33,33 @@ export function WhySection() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6 py-24">
         {/* Story - Receding text (constrained width) */}
-        <p className="text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto text-gray-400">
-          {t.philosophy.top}
-        </p>
+        <AnimatedSection>
+          <p className="text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto text-gray-400">
+            {t.philosophy.top}
+          </p>
+        </AnimatedSection>
 
         {/* Headline - The Hero */}
-        <h2
-          className="text-4xl md:text-5xl lg:text-6xl mb-8"
-          style={{
-            color: "#F5F5F7",
-            fontWeight: 500,
-            lineHeight: 1.35,
-            letterSpacing: "-0.01em",
-          }}
-        >
-          {renderHeadline()}
-        </h2>
+        <AnimatedSection delay={0.15}>
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl mb-8"
+            style={{
+              color: "#F5F5F7",
+              fontWeight: 500,
+              lineHeight: 1.35,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {renderHeadline()}
+          </h2>
+        </AnimatedSection>
 
         {/* Closing - Punchline (more visible) */}
-        <p className="text-base md:text-lg font-medium text-gray-400">
-          {t.philosophy.bottom}
-        </p>
+        <AnimatedSection delay={0.3}>
+          <p className="text-base md:text-lg font-medium text-gray-400">
+            {t.philosophy.bottom}
+          </p>
+        </AnimatedSection>
       </div>
     </div>
   );

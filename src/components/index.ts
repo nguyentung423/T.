@@ -6,6 +6,7 @@ export { DemoCard } from "./DemoCard";
 export { DemoGrid } from "./DemoGrid";
 export { LivePreviewCard } from "./LivePreviewCard";
 export { AvailabilityBadge } from "./AvailabilityBadge";
+export { AnimatedSection } from "./AnimatedSection";
 export { WhySection } from "./WhySection";
 export { HowSection } from "./HowSection";
 export { PricingSignal } from "./PricingSignal";

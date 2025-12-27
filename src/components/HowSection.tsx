@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { AnimatedSection } from "./AnimatedSection";
 
 // Bold icons with heavier stroke (2px) for high contrast
 function ZapIcon() {
@@ -112,58 +113,62 @@ export function HowSection() {
     >
       <div className="max-w-5xl mx-auto px-6 w-full">
         {/* Section Header - Left aligned, technical */}
-        <div className="mb-12">
-          <span className="font-mono text-xs text-gray-400 uppercase tracking-widest block mb-3">
-            {t.process.tag}
-          </span>
-          <h2
-            className="text-2xl md:text-3xl font-semibold tracking-[-0.02em]"
-            style={{ color: "#1D1D1F" }}
-          >
-            {t.process.title}
-          </h2>
-        </div>
+        <AnimatedSection>
+          <div className="mb-12">
+            <span className="font-mono text-xs text-gray-400 uppercase tracking-widest block mb-3">
+              {t.process.tag}
+            </span>
+            <h2
+              className="text-2xl md:text-3xl font-semibold tracking-[-0.02em]"
+              style={{ color: "#1D1D1F" }}
+            >
+              {t.process.title}
+            </h2>
+          </div>
+        </AnimatedSection>
 
         {/* Bento Grid - Process Cards with integrated Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 rounded-2xl overflow-hidden border border-gray-200">
-          {/* Process Steps with Benefits */}
-          {processSteps.map((step) => {
-            const IconComponent = step.Icon;
-            return (
-              <div key={step.label} className="bg-white p-8">
-                {/* Technical Step Label Tag */}
-                <span className="inline-block font-mono text-[10px] text-gray-500 uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">
-                  {step.label}
-                </span>
-
-                {/* Bold Icon */}
-                <div className="mt-5 mb-5">
-                  <IconComponent />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-gray-500 leading-[1.6] mt-2">
-                  {step.description}
-                </p>
-
-                {/* Benefit with separator */}
-                <div className="border-t border-gray-100 mt-6 pt-4 flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
-                    <CheckIcon />
-                  </div>
-                  <span className="text-sm font-medium text-gray-700">
-                    {step.benefit}
+        <AnimatedSection delay={0.15}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 rounded-2xl overflow-hidden border border-gray-200">
+            {/* Process Steps with Benefits */}
+            {processSteps.map((step) => {
+              const IconComponent = step.Icon;
+              return (
+                <div key={step.label} className="bg-white p-8">
+                  {/* Technical Step Label Tag */}
+                  <span className="inline-block font-mono text-[10px] text-gray-500 uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">
+                    {step.label}
                   </span>
+
+                  {/* Bold Icon */}
+                  <div className="mt-5 mb-5">
+                    <IconComponent />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {step.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-500 leading-[1.6] mt-2">
+                    {step.description}
+                  </p>
+
+                  {/* Benefit with separator */}
+                  <div className="border-t border-gray-100 mt-6 pt-4 flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                      <CheckIcon />
+                    </div>
+                    <span className="text-sm font-medium text-gray-700">
+                      {step.benefit}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </AnimatedSection>
 
         {/* Post-handover note - Outside grid, subtle */}
         <p className="text-xs text-gray-400 mt-6">{t.process.disclaimer}</p>

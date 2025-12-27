@@ -1,25 +1,53 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Container } from "@/components/Container";
+import { CaseStudyCard } from "@/components/stories/CaseStudyCard";
+
+// Sample case studies data - replace with real data later
+const caseStudies = [
+  {
+    id: 1,
+    clientName: "Thuỳ Đặng",
+    tagline: "TRADE MARKETING",
+    beforeImageSrc: "/images/stories/minh-hoang-before.jpg",
+    afterImageSrc: "/images/stories/minh-hoang-after.jpg",
+    portfolioUrl: "https://thuydang.vercel.app/",
+    storySummary: {
+      vi: "Từ một hồ sơ giấy khó hình dung, Thuỳ đã sở hữu một không gian số sống động, nơi trưng bày trọn vẹn các chiến dịch tiếp thị tại điểm bán (POSM) và số liệu tăng trưởng thực tế một cách trực quan nhất.",
+      en: "From a hard-to-visualize paper profile, Thuy now owns a vibrant digital space that showcases complete point-of-sale marketing campaigns (POSM) and real growth data in the most visual way.",
+    },
+    slug: "minh-hoang",
+  },
+  {
+    id: 2,
+    clientName: "Thanh Trúc",
+    tagline: "UX/UI DESIGNER",
+    beforeImageSrc: "/images/stories/thanh-truc-before.jpg",
+    afterImageSrc: "/images/stories/thanh-truc-after.jpg",
+    storySummary: {
+      vi: "Portfolio cũ của Trúc là một file Behance lẫn trong hàng triệu designer khác. Giờ đây, cô ấy có một website riêng với case study chuyên sâu và personality độc đáo.",
+      en: "Trúc's old portfolio was a Behance file lost among millions of designers. Now, she has her own website with in-depth case studies and unique personality.",
+    },
+    slug: "thanh-truc",
+  },
+];
 
 export default function StoriesPage() {
   const { language } = useLanguage();
 
   const content = {
     vi: {
-      headline: "Những câu chuyện chuyển mình.",
-      subtext:
-        "Những Portfolio độc bản đang trong quá trình chế tác. Hãy quay lại sau để chứng kiến sự thay đổi.",
-      wip: "Đang hoàn thiện",
+      headline: "Hành Trình",
+      subtitle:
+        "Mỗi portfolio là một hành trình. Đây là những bước chuyển đổi từ CV truyền thống sang không gian số đẳng cấp.",
     },
     en: {
       headline: "Stories of Transformation.",
-      subtext:
-        "Unique portfolios are being crafted. Come back soon to witness the change.",
-      wip: "Work in Progress",
+      subtitle:
+        "Every portfolio is a journey. Here are the transformations from traditional CVs to premium digital spaces.",
     },
   };
 
@@ -28,78 +56,40 @@ export default function StoriesPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen flex items-center justify-center px-6">
-        <motion.div
-          className="text-center max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Pulsing dot indicator */}
-          <motion.div
-            className="flex items-center justify-center gap-2 mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            <motion.span
-              className="w-2 h-2 rounded-full bg-gray-400"
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <span className="text-sm text-gray-500 tracking-wide uppercase">
-              {t.wip}
-            </span>
-          </motion.div>
+      <main className="min-h-screen pt-24 pb-16">
+        <Container>
+          {/* Page Header - Left aligned, balanced text */}
+          <div className="max-w-3xl mb-6 md:mb-8">
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-5 tracking-tight text-left"
+              style={{ textWrap: "balance" }}
+            >
+              {t.headline}
+            </h1>
+            <p
+              className="text-lg md:text-xl leading-relaxed text-left"
+              style={{ color: "#86868B" }}
+            >
+              {t.subtitle}
+            </p>
+          </div>
 
-          {/* Headline */}
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-black mb-6 tracking-tight"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-          >
-            {t.headline}
-          </motion.h1>
-
-          {/* Subtext */}
-          <motion.p
-            className="text-lg md:text-xl leading-relaxed mb-10"
-            style={{ color: "#86868B" }}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-          >
-            {t.subtext}
-          </motion.p>
-
-          {/* Thin progress line */}
-          <motion.div
-            className="w-32 h-[2px] bg-gray-200 mx-auto rounded-full overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          >
-            <motion.div
-              className="h-full bg-gray-400 rounded-full"
-              initial={{ x: "-100%" }}
-              animate={{ x: "100%" }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{ width: "40%" }}
-            />
-          </motion.div>
-        </motion.div>
+          {/* Case Studies List */}
+          <div>
+            {caseStudies.map((study) => (
+              <CaseStudyCard
+                key={study.id}
+                clientName={study.clientName}
+                tagline={study.tagline}
+                beforeImageSrc={study.beforeImageSrc}
+                afterImageSrc={study.afterImageSrc}
+                portfolioUrl={study.portfolioUrl}
+                storySummary={study.storySummary[language]}
+                slug={study.slug}
+              />
+            ))}
+          </div>
+        </Container>
       </main>
       <Footer />
     </>

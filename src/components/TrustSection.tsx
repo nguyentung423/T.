@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { AnimatedSection } from "./AnimatedSection";
 
 function QuoteIcon() {
   return (
@@ -35,63 +36,67 @@ export function TrustSection() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Left Column: The Maker */}
-          <div>
-            {/* Profile Image */}
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-lg relative">
-              <Image
-                src="/demos/u.jpg"
-                alt="Tung - Portfolio Builder"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
-              />
+          <AnimatedSection>
+            <div>
+              {/* Profile Image */}
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-lg relative">
+                <Image
+                  src="/demos/u.jpg"
+                  alt="Tung - Portfolio Builder"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                />
+              </div>
+              {/* Caption */}
+              <div className="mt-6">
+                <h3 className="text-xl font-bold text-gray-900">
+                  Hi, I&apos;m {t.about.profile_name}
+                </h3>
+                <p className="text-sm font-medium text-gray-500 mt-1">
+                  {t.about.profile_role}
+                </p>
+              </div>
             </div>
-            {/* Caption */}
-            <div className="mt-6">
-              <h3 className="text-xl font-bold text-gray-900">
-                Hi, I&apos;m {t.about.profile_name}
-              </h3>
-              <p className="text-sm font-medium text-gray-500 mt-1">
-                {t.about.profile_role}
-              </p>
-            </div>
-          </div>
+          </AnimatedSection>
 
           {/* Right Column: The "Why" & Social Proof */}
-          <div className="flex flex-col justify-center">
-            {/* Headline */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              {t.about.headline}
-            </h2>
+          <AnimatedSection delay={0.15}>
+            <div className="flex flex-col justify-center">
+              {/* Headline */}
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                {t.about.headline}
+              </h2>
 
-            {/* Body Text */}
-            <p className="text-lg text-gray-600 leading-relaxed mb-10">
-              {t.about.description}
-            </p>
-
-            {/* Testimonial Card */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative">
-              <QuoteIcon />
-              <p className="text-gray-800 font-medium text-lg italic relative z-10 pl-2">
-                &ldquo;{t.about.testimonial_quote}&rdquo;
+              {/* Body Text */}
+              <p className="text-lg text-gray-600 leading-relaxed mb-10">
+                {t.about.description}
               </p>
-              <div className="mt-6">
-                <span className="text-sm font-bold text-gray-900 block">
-                  {t.about.testimonial_author}
-                </span>
-                <span className="text-xs text-gray-500 uppercase tracking-wider">
-                  {t.about.testimonial_role}
-                </span>
-                <div className="flex items-center gap-0.5 mt-2">
-                  <StarIcon />
-                  <StarIcon />
-                  <StarIcon />
-                  <StarIcon />
-                  <StarIcon />
+
+              {/* Testimonial Card */}
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative">
+                <QuoteIcon />
+                <p className="text-gray-800 font-medium text-lg italic relative z-10 pl-2">
+                  &ldquo;{t.about.testimonial_quote}&rdquo;
+                </p>
+                <div className="mt-6">
+                  <span className="text-sm font-bold text-gray-900 block">
+                    {t.about.testimonial_author}
+                  </span>
+                  <span className="text-xs text-gray-500 uppercase tracking-wider">
+                    {t.about.testimonial_role}
+                  </span>
+                  <div className="flex items-center gap-0.5 mt-2">
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </div>
