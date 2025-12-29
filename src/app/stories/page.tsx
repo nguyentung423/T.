@@ -12,7 +12,7 @@ const caseStudies = [
     id: 1,
     clientName: "Thuỳ Đặng",
     tagline: "TRADE MARKETING",
-    beforeImageSrc: "/images/stories/minh-hoang-before.jpg",
+    beforeImageSrc: "/demos/t.svg",
     afterImageSrc: "/images/stories/minh-hoang-after.jpg",
     portfolioUrl: "https://thuydang.vercel.app/",
     storySummary: {

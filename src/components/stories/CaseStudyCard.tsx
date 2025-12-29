@@ -73,20 +73,27 @@ export function CaseStudyCard({
             <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-medium">
               {t.original}
             </p>
-            {/* A4 Paper Aspect Ratio - looks like a miniature document */}
-            <div className="relative w-32 aspect-[3/4] overflow-hidden rounded border border-gray-200 shadow-sm bg-gray-100">
+            {/* A4 Paper Aspect Ratio - styled like a physical document */}
+            <div
+              className="relative w-40 overflow-hidden bg-white select-none"
+              style={{
+                aspectRatio: "210 / 297", // A4 aspect ratio
+                borderRadius: "8px",
+                boxShadow:
+                  "0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06)",
+                border: "1px solid rgba(0, 0, 0, 0.06)",
+              }}
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <Image
                 src={beforeImageSrc}
                 alt={`${clientName} - Original CV`}
                 fill
-                className="grayscale blur-[2px] opacity-50 object-cover object-top"
-                style={{
-                  filter: "grayscale(100%) blur(2px)",
-                  opacity: 0.5,
-                }}
+                className="object-cover object-top blur-[0.5px] opacity-90 pointer-events-none"
+                draggable={false}
               />
-              {/* Subtle overlay to fade it further */}
-              <div className="absolute inset-0 bg-white/30" />
+              {/* Overlay to prevent interaction and add fade effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-white/15 pointer-events-none" />
             </div>
           </div>
 

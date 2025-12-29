@@ -14,6 +14,7 @@ import {
   Quote,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Animation variants
 const fadeUpVariants = {
@@ -339,65 +340,51 @@ export default function CaseStudyDetailClient({
                 </div>
               </AnimatedSection>
 
-              {/* Right: Original CV Visual (Blurred A4) - 3D Floating Document */}
+              {/* Right: Original CV Visual - Physical Document Style */}
               <AnimatedSection>
                 <div className="relative flex items-center justify-center py-8">
-                  {/* A4 Document - 3D Floating Effect */}
-                  <div className="relative mx-auto w-full max-w-[280px] aspect-[210/297] bg-gray-100 rounded-lg shadow-2xl overflow-hidden transform -rotate-3 hover:scale-105 hover:-rotate-1 transition-all duration-500 cursor-default">
-                    {/* Paper texture overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-gray-200/30" />
-
-                    {/* Fake CV content lines */}
-                    <div className="absolute inset-0 p-6 space-y-3">
-                      {/* Header area */}
-                      <div className="w-1/3 h-3 bg-gray-300/60 rounded" />
-                      <div className="w-2/3 h-5 bg-gray-400/50 rounded mt-2" />
-                      <div className="w-1/2 h-2 bg-gray-300/40 rounded" />
-
-                      {/* Divider */}
-                      <div className="w-full h-px bg-gray-300/40 my-4" />
-
-                      {/* Content blocks */}
-                      <div className="space-y-2">
-                        {[...Array(4)].map((_, i) => (
-                          <div
-                            key={`block1-${i}`}
-                            className="w-full h-2 bg-gray-300/40 rounded"
-                            style={{ width: `${85 - i * 10}%` }}
-                          />
-                        ))}
-                      </div>
-
-                      <div className="pt-3 space-y-2">
-                        {[...Array(5)].map((_, i) => (
-                          <div
-                            key={`block2-${i}`}
-                            className="w-full h-2 bg-gray-300/35 rounded"
-                            style={{ width: `${90 - i * 8}%` }}
-                          />
-                        ))}
-                      </div>
-
-                      <div className="pt-3 space-y-2">
-                        {[...Array(4)].map((_, i) => (
-                          <div
-                            key={`block3-${i}`}
-                            className="w-full h-2 bg-gray-300/30 rounded"
-                            style={{ width: `${80 - i * 12}%` }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Subtle fold line effect */}
-                    <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-gray-300/20 via-gray-400/10 to-transparent" />
+                  {/* A4 Document - Physical Document Effect */}
+                  <div
+                    className="relative mx-auto w-full max-w-[280px] bg-white overflow-hidden transform -rotate-3 hover:scale-105 hover:-rotate-1 transition-all duration-500 cursor-default select-none"
+                    style={{
+                      aspectRatio: "210 / 297",
+                      borderRadius: "12px",
+                      boxShadow:
+                        "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 12px 24px -8px rgba(0, 0, 0, 0.1)",
+                      border: "1px solid rgba(0, 0, 0, 0.06)",
+                    }}
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
+                    <Image
+                      src="/demos/t.svg"
+                      alt="Original PDF Resume"
+                      fill
+                      className="object-cover object-top blur-[1px] opacity-85 pointer-events-none"
+                      draggable={false}
+                    />
+                    {/* Overlay to prevent interaction and add fade effect */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/20 pointer-events-none" />
                   </div>
 
                   {/* Second page peeking behind - depth effect */}
-                  <div className="absolute mx-auto w-full max-w-[280px] aspect-[210/297] bg-gray-200/80 rounded-lg shadow-xl -z-10 transform -rotate-6 translate-x-3 translate-y-2" />
+                  <div
+                    className="absolute mx-auto w-full max-w-[280px] bg-gray-100 -z-10 transform -rotate-6 translate-x-3 translate-y-2"
+                    style={{
+                      aspectRatio: "210 / 297",
+                      borderRadius: "12px",
+                      boxShadow: "0 20px 40px -15px rgba(0, 0, 0, 0.1)",
+                    }}
+                  />
 
                   {/* Third page for more depth */}
-                  <div className="absolute mx-auto w-full max-w-[280px] aspect-[210/297] bg-gray-300/60 rounded-lg shadow-lg -z-20 transform -rotate-9 translate-x-5 translate-y-4" />
+                  <div
+                    className="absolute mx-auto w-full max-w-[280px] bg-gray-200 -z-20 transform -rotate-9 translate-x-5 translate-y-4"
+                    style={{
+                      aspectRatio: "210 / 297",
+                      borderRadius: "12px",
+                      boxShadow: "0 15px 30px -18px rgba(0, 0, 0, 0.08)",
+                    }}
+                  />
 
                   {/* Decorative ambient shadow */}
                   <div className="absolute -inset-8 -z-30 bg-gradient-to-b from-gray-200/30 via-gray-300/20 to-transparent rounded-3xl blur-3xl" />
@@ -493,107 +480,182 @@ export default function CaseStudyDetailClient({
               </h3>
             </AnimatedSection>
 
-            {/* Macbook Mockup with Website - Wide Container for Immersive Experience */}
-            <AnimatedSection className="mb-16 md:mb-20 -mx-4 md:mx-0">
-              {/* Wide container - Full width on mobile, 90% on desktop with max-width */}
-              <div className="w-full max-w-[1440px] mx-auto px-2 md:px-8 lg:px-12 overflow-hidden">
-                <div className="relative w-full">
-                  {/* Macbook Frame */}
-                  <div className="bg-gray-800 rounded-t-xl md:rounded-t-2xl pt-3 md:pt-4 pb-1.5 md:pb-2 px-2 md:px-4">
-                    {/* Screen bezel top */}
-                    <div className="flex items-center justify-center mb-1.5 md:mb-2">
-                      <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-gray-600" />
+            {/* Device Duo: Equal Height Side-by-Side Layout */}
+            <AnimatedSection className="mb-16 md:mb-20">
+              {/* The Stage - Fixed height container on desktop for equal towers */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 w-full max-w-7xl mx-auto px-4 h-auto md:h-[500px] lg:h-[580px]">
+                {/* ========== DESKTOP MOCKUP (Left - Browser Window) ========== */}
+                <div className="relative h-[320px] md:h-full w-full md:w-auto md:flex-1 max-w-3xl">
+                  {/* Safari/macOS Window Frame */}
+                  <div className="h-full bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
+                    {/* Chrome - Top Bar */}
+                    <div className="h-9 md:h-10 lg:h-11 bg-gray-100 border-b border-gray-200 flex items-center px-3 md:px-4 gap-2 flex-shrink-0">
+                      {/* Traffic Lights */}
+                      <div className="flex items-center gap-1.5 md:gap-2">
+                        <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F57]" />
+                        <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E]" />
+                        <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#28C840]" />
+                      </div>
+                      {/* Address Bar */}
+                      <div className="flex-1 ml-3 md:ml-4 lg:ml-6">
+                        <div className="h-5 md:h-6 bg-white rounded-md border border-gray-300 flex items-center px-2 md:px-3 max-w-xs">
+                          <span className="text-[9px] md:text-[10px] lg:text-xs text-gray-500 font-mono truncate">
+                            {portfolioDomain}
+                          </span>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Screen */}
-                    <div className="bg-white rounded-md md:rounded-lg overflow-hidden shadow-inner">
-                      {/* Browser bar */}
-                      <div className="bg-gray-100 px-2 md:px-4 py-1.5 md:py-2 flex items-center gap-1.5 md:gap-2 border-b border-gray-200">
-                        <div className="flex items-center gap-1 md:gap-1.5">
-                          <span className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-400" />
-                          <span className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-yellow-400" />
-                          <span className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-green-400" />
-                        </div>
-                        <div className="flex-1 ml-2 md:ml-4">
-                          <div className="bg-white rounded px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs text-gray-500 font-mono max-w-[120px] md:max-w-xs border border-gray-200 truncate">
-                            {portfolioDomain}
-                          </div>
-                        </div>
-                      </div>
+                    {/* Content Area - Takes remaining height */}
+                    <div className="flex-1 bg-gray-50 overflow-hidden relative">
+                      {portfolioUrl ? (
+                        <>
+                          <iframe
+                            src={portfolioUrl}
+                            className="border-none w-[1440px] h-[900px]"
+                            style={{
+                              pointerEvents: "none",
+                              overflow: "hidden",
+                              transform:
+                                "scale(var(--iframe-scale-desktop-eq, 0.5))",
+                              transformOrigin: "0 0",
+                            }}
+                            title={`${t.testimonialAuthor} Portfolio - Desktop`}
+                          />
 
-                      {/* Website iframe container - Responsive scaling */}
-                      <div className="relative aspect-[16/10] bg-gray-50 overflow-hidden">
-                        <div className="absolute inset-0 overflow-hidden">
-                          {portfolioUrl ? (
-                            <>
-                              <iframe
-                                src={portfolioUrl}
-                                className="border-none w-[1440px] h-[900px]"
-                                style={{
-                                  pointerEvents: "none",
-                                  overflow: "hidden",
-                                  transform: "scale(var(--iframe-scale, 0.5))",
-                                  transformOrigin: "0 0",
-                                }}
-                                title={`${t.testimonialAuthor} Portfolio Preview`}
-                              />
+                          <style>{`
+                            @media (max-width: 767px) {
+                              :root { --iframe-scale-desktop-eq: 0.24; }
+                            }
+                            @media (min-width: 768px) and (max-width: 1024px) {
+                              :root { --iframe-scale-desktop-eq: 0.42; }
+                            }
+                            @media (min-width: 1025px) and (max-width: 1280px) {
+                              :root { --iframe-scale-desktop-eq: 0.50; }
+                            }
+                            @media (min-width: 1281px) {
+                              :root { --iframe-scale-desktop-eq: 0.58; }
+                            }
+                          `}</style>
 
-                              {/* CSS Variable for responsive scaling */}
-                              <style>{`
-                                @media (max-width: 640px) {
-                                  :root { --iframe-scale: 0.26; }
-                                }
-                                @media (min-width: 641px) and (max-width: 1024px) {
-                                  :root { --iframe-scale: 0.46; }
-                                }
-                                @media (min-width: 1025px) {
-                                  :root { --iframe-scale: 0.66; }
-                                }
-                              `}</style>
-
-                              {/* Overlay link for click handling */}
-                              <a
-                                href={portfolioUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="absolute top-0 left-0 w-full h-full z-10 cursor-pointer group"
-                              >
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
-                                  <div className="bg-white/90 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
-                                    🔗 Xem website thực tế
-                                  </div>
-                                </div>
-                              </a>
-                            </>
-                          ) : (
-                            /* Placeholder when no portfolio URL */
-                            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                              <div className="text-6xl mb-4">🎨</div>
-                              <p className="text-gray-500 text-sm md:text-base font-medium">
-                                Coming Soon
-                              </p>
-                              <p className="text-gray-400 text-xs md:text-sm mt-1">
-                                Portfolio đang được xây dựng
-                              </p>
+                          <a
+                            href={portfolioUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute inset-0 z-10 cursor-pointer group"
+                          >
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+                              <div className="bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full text-xs lg:text-sm font-medium text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+                                🔗 Xem website thực tế
+                              </div>
                             </div>
-                          )}
+                          </a>
+                        </>
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                          <div className="text-4xl lg:text-5xl mb-3">🎨</div>
+                          <p className="text-gray-500 text-sm lg:text-base font-medium">
+                            Coming Soon
+                          </p>
+                          <p className="text-gray-400 text-xs lg:text-sm mt-1">
+                            Portfolio đang được xây dựng
+                          </p>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
-
-                  {/* Macbook bottom */}
-                  <div className="bg-gray-700 h-2 md:h-4 rounded-b-lg md:rounded-b-xl" />
-                  <div className="bg-gray-600 h-1 md:h-2 mx-auto w-1/4 rounded-b-md md:rounded-b-lg" />
-
-                  {/* Reflection shadow - Glass table effect */}
-                  <div className="mt-3 md:mt-4 w-[80%] h-3 md:h-4 mx-auto bg-black/15 blur-xl rounded-full" />
-                  <div className="mt-0.5 md:mt-1 w-[60%] h-1.5 md:h-2 mx-auto bg-black/10 blur-lg rounded-full" />
-
-                  {/* Decorative shadow */}
-                  <div className="absolute -inset-4 md:-inset-8 -z-10 bg-gradient-radial from-gray-200/50 to-transparent rounded-2xl md:rounded-3xl blur-2xl md:blur-3xl" />
                 </div>
+
+                {/* ========== MOBILE MOCKUP (Right - Phone Frame) ========== */}
+                <motion.div
+                  className="relative h-[400px] md:h-full w-auto"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.2,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                >
+                  {/* iPhone Frame - Aspect ratio maintained within fixed height */}
+                  <div
+                    className="h-full bg-black rounded-[2.5rem] md:rounded-[3rem] border-[6px] md:border-[8px] border-gray-800 shadow-2xl overflow-hidden"
+                    style={{ aspectRatio: "9/19" }}
+                  >
+                    {/* Dynamic Island */}
+                    <div className="absolute top-3 md:top-4 left-1/2 -translate-x-1/2 w-[28%] h-5 md:h-6 lg:h-7 bg-black rounded-full z-20" />
+
+                    {/* Screen Content */}
+                    <div className="w-full h-full bg-white overflow-hidden relative">
+                      {portfolioUrl ? (
+                        <>
+                          <iframe
+                            src={portfolioUrl}
+                            className="border-none w-[375px] h-[812px]"
+                            style={{
+                              pointerEvents: "none",
+                              overflow: "hidden",
+                              transform:
+                                "scale(var(--iframe-scale-mobile-eq, 0.4))",
+                              transformOrigin: "0 0",
+                            }}
+                            title={`${t.testimonialAuthor} Portfolio - Mobile`}
+                          />
+
+                          <style>{`
+                            @media (max-width: 767px) {
+                              :root { --iframe-scale-mobile-eq: 0.48; }
+                            }
+                            @media (min-width: 768px) and (max-width: 1024px) {
+                              :root { --iframe-scale-mobile-eq: 0.58; }
+                            }
+                            @media (min-width: 1025px) and (max-width: 1280px) {
+                              :root { --iframe-scale-mobile-eq: 0.66; }
+                            }
+                            @media (min-width: 1281px) {
+                              :root { --iframe-scale-mobile-eq: 0.72; }
+                            }
+                          `}</style>
+
+                          <a
+                            href={portfolioUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute inset-0 z-10 cursor-pointer group"
+                          >
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                          </a>
+                        </>
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                          <div className="text-3xl lg:text-4xl mb-2">📱</div>
+                          <p className="text-gray-400 text-xs lg:text-sm">
+                            Mobile Preview
+                          </p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2 md:bottom-3 left-1/2 -translate-x-1/2 w-[35%] h-1 md:h-1.5 bg-gray-600 rounded-full z-20" />
+                  </div>
+                </motion.div>
               </div>
+
+              {/* Responsive Badge - Centered below devices */}
+              <motion.div
+                className="flex justify-center mt-8 md:mt-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <div className="bg-black/90 backdrop-blur-sm text-white text-xs lg:text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <span>Fully Responsive Design</span>
+                </div>
+              </motion.div>
             </AnimatedSection>
 
             {/* Testimonial */}
